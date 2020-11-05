@@ -1,6 +1,28 @@
 # employee-directory-19
 A React Employee Directory
 
+Good idea to use `npx create-react-app employeeDirectory`
+
+There is an api that will generate random user data!
+
+randomuser.me/api/?<api-params-here>
+
+For randomuser API:
+
+```javascript
+import axios from 'axios';
+export default {
+  // Gets all users
+  getUsers: function() {
+    return axios.get('https://randomuser.me/api/?results=200&nat=us');
+  }
+};
+```
+
+
+
+Need to be able to sort/filter the database.
+
 
 
 
