@@ -34,17 +34,23 @@ function Nav({ query, onInputChange, onSortChange, currentKey, currentOrder }) {
       </button>
       <div className='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul className='navbar-nav mr-auto'>
-          <span class='navbar-text'>Sort by: </span>
+          <span className='navbar-text'>Sort by: </span>
           {sorts.map(({ key, label }) => (
-            <li key={key} className='nav-item dropdown m-1'>
+            <li key={key} className='nav-item m-1'>
               <button
-                style={currentKey === key ? { color: "white" } : {}}
+                style={currentKey === key ? { color: "red" } : {}}
                 onClick={() =>
                   onSortChange(key, currentOrder === "asc" ? "desc" : "asc")
                 }
-                className='dropdown-item'
+                className='btn'
               >
-                {label} - {currentOrder === "asc" ? "Ascending" : "Descending"}
+                {label} {
+                  currentKey !== key 
+                  ? ""
+                  : currentOrder === "asc" 
+                    ? (<i className="fas fa-chevron-circle-down"></i>)
+                    : (<i className="fas fa-chevron-circle-up"></i>)
+                }
               </button>
             </li>
           ))}
