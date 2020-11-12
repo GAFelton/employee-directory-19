@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import { Container } from '../components/Grid';
 import API from '../utils/API';
+import sortFunctions from '../utils/sortFunctions';
 
 
 function EmployeeDirectory() {
+  // EmployeesList is the master list, derived from the API.
   const [employeesList, setEmployeesList] = useState([])
+  // Employees is the array to be modified with sorting & filtering.
   const [employees, setEmployees] = useState([])
 
   // Load all employees and store them with setEmployeesList
@@ -13,42 +16,20 @@ function EmployeeDirectory() {
     loadEmployeesList()
   }, [])
 
+  // Only sets employees array once employeesList has changed.
+  useEffect(() => {
+    setEmployees(employeesList)
+  }, [employeesList])
+
   // Loads all employees and sets them to employeesList
   async function loadEmployeesList() {
     try {
       const response = await API.getUsers()
       setEmployeesList(response.data.results);
-      setEmployees(employeesList)
     } catch (err) {
       console.log(err);
     }
   };
-  
-  // To be used with a sort function: Ex. singers.sort(compareValues('band', 'desc'));
-  function compareValues(key, order = 'asc') {
-    return function innerSort(a, b) {
-      if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-        // property doesn't exist on either object
-        return 0;
-      }
-  
-      const varA = (typeof a[key] === 'string')
-        ? a[key].toUpperCase() : a[key];
-      const varB = (typeof b[key] === 'string')
-        ? b[key].toUpperCase() : b[key];
-  
-      let comparison = 0;
-      if (varA > varB) {
-        comparison = 1;
-      } else if (varA < varB) {
-        comparison = -1;
-      }
-      return (
-        (order === 'desc') ? (comparison * -1) : comparison
-      );
-    };
-  }
-
 
   return (
     <Container fluid>
@@ -57,7 +38,7 @@ function EmployeeDirectory() {
           {
             employees.map(employee => {
               return (
-                <Card id={employee.id.value}>
+                <Card key={employee.id.value.toString()} id={employee.id.value}>
                   <img className="card-img-top" src={employee.picture.large} alt={employee.name.first} />
                   <div className="card-body">
                     <h5 className="card-title">{employee.name.first} {employee.name.last}</h5>
