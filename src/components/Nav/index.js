@@ -3,19 +3,48 @@ import React from "react";
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
-      <a className="navbar-brand" href="/">
+      <button className="navbar-brand bg-primary" href="/">
         React Employee Directory
-      </a>
-      <div className="dropdown">
-  <button className="btn btn-primary dropdown-toggle" type="button" id="sortDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Sort By:
-  </button>
-  <div className="dropdown-menu" aria-labelledby="sortDropdownMenu">
-    <button className="dropdown-item" type="button">Action</button>
-    <button className="dropdown-item" type="button">Another action</button>
-    <button className="dropdown-item" type="button">Something else here</button>
-  </div>
-</div>
+      </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto">
+          <span class="navbar-text">Sort by: </span>
+          <li className="nav-item dropdown m-1">
+            <button className="btn dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              First Name
+        </button>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <button className="dropdown-item">Ascending</button>
+              <button className="dropdown-item">Descending</button>
+            </div>
+          </li>
+          <li className="nav-item dropdown m-1">
+            <button className="btn dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Last Name
+        </button>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <button className="dropdown-item">Ascending</button>
+              <button className="dropdown-item">Descending</button>
+            </div>
+          </li>
+          <li className="nav-item dropdown m-1">
+            <button className="btn dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Phone Number
+        </button>
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <button className="dropdown-item">Ascending</button>
+              <button className="dropdown-item">Descending</button>
+            </div>
+          </li>
+        </ul>
+        <form className="form-inline my-2 my-lg-0">
+          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
     </nav>
   );
 }
