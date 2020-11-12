@@ -1,5 +1,3 @@
-import React from 'react';
-
 const sortFunctions = {
   // To be used with a sort function: Ex. singers.sort(compareValues('band', 'desc'));
    compareValues: function(key, order = 'asc') {

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import Nav from "./components/Nav";
 import EmployeeDirectory from "./pages/EmployeeDirectory";
 import API from "./utils/API";
