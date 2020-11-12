@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 import { Container } from '../components/Grid';
+import './employeeDirectory.css';
 
 function EmployeeDirectory(props) {
   return (
@@ -23,7 +24,7 @@ function EmployeeDirectory(props) {
           }
         </div>
       ) : (
-          <h3>No Results to Display</h3>
+        <div className="absoluteCenter"><div><i className="fas fa-spinner fa-pulse"></i></div></div>
         )}
     </Container>
   )
