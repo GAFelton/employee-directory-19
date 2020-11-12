@@ -1,42 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Card from '../components/Card';
 import { Container } from '../components/Grid';
-import API from '../utils/API';
-import sortFunctions from '../utils/sortFunctions';
 
-
-function EmployeeDirectory() {
-  // EmployeesList is the master list, derived from the API.
-  const [employeesList, setEmployeesList] = useState([])
-  // Employees is the array to be modified with sorting & filtering.
-  const [employees, setEmployees] = useState([])
-
-  // Load all employees and store them with setEmployeesList
-  useEffect(() => {
-    loadEmployeesList()
-  }, [])
-
-  // Only sets employees array once employeesList has changed.
-  useEffect(() => {
-    setEmployees(employeesList)
-  }, [employeesList])
-
-  // Loads all employees and sets them to employeesList
-  async function loadEmployeesList() {
-    try {
-      const response = await API.getUsers()
-      setEmployeesList(response.data.results);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+function EmployeeDirectory(props) {
   return (
     <Container fluid>
-      {employees.length ? (
+      {props.employees.length ? (
         <div className="card-deck d-flex justify-content-center">
           {
-            employees.map(employee => {
+            props.employees.map(employee => {
               return (
                 <Card key={employee.id.value.toString()} id={employee.id.value}>
                   <img className="card-img-top" src={employee.picture.large} alt={employee.name.first} />
