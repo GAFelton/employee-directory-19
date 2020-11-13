@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 
 function Nav({ query, onInputChange, onSortChange, currentKey, currentOrder }) {
   const sorts = [
@@ -17,10 +18,10 @@ function Nav({ query, onInputChange, onSortChange, currentKey, currentOrder }) {
   ];
 
   return (
-    <nav className='navbar navbar-expand-lg navbar-dark bg-primary justify-content-between'>
-      <button className='navbar-brand bg-primary' href='/'>
+    <nav className='navbar navbar-expand-lg navbar-dark bg-primary justify-content-between mb-2'>
+      <a className='navbar-brand bg-primary navTitle' href='/'>
         React Employee Directory
-      </button>
+      </a>
       <button
         className='navbar-toggler'
         type='button'
@@ -38,7 +39,7 @@ function Nav({ query, onInputChange, onSortChange, currentKey, currentOrder }) {
           {sorts.map(({ key, label }) => (
             <li key={key} className='nav-item m-1'>
               <button
-                style={currentKey === key ? { color: "red" } : {}}
+                style={currentKey === key ? { color: "orangered" } : {}}
                 onClick={() =>
                   onSortChange(key, currentOrder === "asc" ? "desc" : "asc")
                 }

@@ -1,4 +1,5 @@
 .employeeCard {
   min-width: 18em;
   max-width: 20em;
+  box-shadow: 10px 10px 5px grey;
 }
