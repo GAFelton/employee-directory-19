@@ -9,7 +9,7 @@
 
   [Link to GitHub Repo](https://github.com/GAFelton/employee-directory-19)
 
-  [Link to Deployed Project]()
+  [Link to Deployed Project](https://www.gfelton.com/employee-directory-19/)
 
   ## Table of Contents
 
