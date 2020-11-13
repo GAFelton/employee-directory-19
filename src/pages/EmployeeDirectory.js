@@ -11,7 +11,7 @@ function EmployeeDirectory(props) {
           {
             props.employees.map(employee => {
               return (
-                <Card key={employee.id.value.toString()} id={employee.id.value}>
+                <Card key={employee.login.uuid.toString()} id={employee.login.uuid}>
                   <img className="card-img-top" src={employee.picture.large} alt={employee.name.first} />
                   <div className="card-body">
                     <h5 className="card-title">{employee.name.first} {employee.name.last}</h5>
