@@ -34,7 +34,7 @@
 
 Interact with the example employee database by using one of the sort buttons on the navbar and by using the search function.
 
-![Screenshot of the app.](.\project-screenshot.png)
+![Screenshot of the app.](./project-screenshot.png)
 
 
 
